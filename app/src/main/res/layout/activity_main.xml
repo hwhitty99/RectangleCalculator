@@ -10,19 +10,20 @@
         android:id="@+id/width"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
         android:text="Width"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editWidth"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06999999" />
 
     <TextView
         android:id="@+id/area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="16dp"
         android:text="Area"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -44,54 +45,51 @@
         android:id="@+id/numArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="0.0"
         android:textSize="16sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/numPerimeter"
-        app:layout_constraintTop_toBottomOf="@+id/editHeight" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/area"
+        app:layout_constraintStart_toStartOf="@+id/editHeight" />
 
     <TextView
         android:id="@+id/numPerimeter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="16dp"
         android:text="0.0"
         android:textSize="16sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toEndOf="@+id/perimeter"
-        app:layout_constraintTop_toBottomOf="@+id/numArea" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/perimeter"
+        app:layout_constraintStart_toStartOf="@+id/numArea" />
 
     <EditText
         android:id="@+id/editWidth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
         android:ems="10"
         android:hint="Type Width"
         android:inputType="numberDecimal"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/editHeight"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/width"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
         android:ems="10"
         android:hint="Type Height"
         android:inputType="numberDecimal"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/numArea"
-        app:layout_constraintTop_toTopOf="@+id/editWidth" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/height"
+        app:layout_constraintStart_toStartOf="@+id/editWidth" />
 
     <TextView
         android:id="@+id/height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:text="Height"
         android:textSize="16sp"
         android:textStyle="bold"

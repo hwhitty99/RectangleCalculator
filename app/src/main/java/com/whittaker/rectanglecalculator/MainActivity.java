@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import org.w3c.dom.Text;
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
@@ -26,6 +24,8 @@ public class MainActivity extends AppCompatActivity
     private String  areaString = "";
     private String  perimString = "";
 
+    private SharedPreferences savedValues;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +38,16 @@ public class MainActivity extends AppCompatActivity
 
         editHeight.setOnEditorActionListener(this);
 
-        calcAndDisplay();
+        savedValues = getSharedPreferences("SavedValues", MODE_PRIVATE);
     }
 
     @Override
     public void onPause() {
+        // save the instance variables
+        SharedPreferences.Editor editor = savedValues.edit();
+        editor.putString("widthString", widthString);
+        editor.putString("heightString", heightString);
+        editor.apply();
 
         super.onPause();
     }
@@ -51,6 +56,14 @@ public class MainActivity extends AppCompatActivity
     public void onResume() {
 
         super.onResume();
+
+        // get the instance variables
+        widthString = savedValues.getString("widthString", "");
+        heightString = savedValues.getString("heightString", "");
+
+        // set the width and height widgets
+        editWidth.setText(widthString);
+        editHeight.setText(heightString);
 
         calcAndDisplay();
     }
